@@ -11,7 +11,7 @@ Jakob ist Gründer, kein Entwickler. Entscheidungen und Ergebnisse auf Deutsch, 
 - `privat/<kanal>/`: das bezahlte Paket in voller Größe, **nie öffentlich**; nur über `api/datei.js` mit gültigem Freischalt-Token.
 - `public/app.js`, `public/style.css`: eine Seite für alle Kanäle; `public/<kanal>/index.html` setzt nur `window.KANAL`.
 - `public/kanaele.json`: Preis und Gumroad je Kanal (Animated Islands: 3,99 €, Produkt `digitaljlhproducts.gumroad.com/l/wallpapers`) (`gumroad` = Produkt-Link, `gumroadProduktId` = Produkt-ID). Leer = Kaufknopf zeigt „Coming soon“.
-- `api/freischalten.js`: prüft den Lizenzschlüssel aus der Gumroad-Quittung bei Gumroad und gibt ein signiertes Token (365 Tage) zurück. `api/datei.js`: liefert eine Datei aus `privat/` nur mit Token. `api/_token.js`: Signatur mit `WALLPAPER_SECRET` (nur in Vercel, nie im Repository).
+- `api/freischalten.js`: prüft den Lizenzschlüssel aus der Gumroad-Quittung bei Gumroad und gibt ein signiertes Token (5 Jahre) zurück. **Höchstens 3 Freischaltungen je Schlüssel** (Jakob, 2026-11-18); Gumroad zählt mit (`increment_uses_count`), jede neue Eingabe zählt, auch auf demselben Gerät nach dem Löschen der Browserdaten. Braucht jemand mehr: Zähler bei Gumroad zurücksetzen. `api/datei.js`: liefert eine Datei aus `privat/` nur mit Token. `api/_token.js`: Signatur mit `WALLPAPER_SECRET` (nur in Vercel, nie im Repository).
 
 ## Neuer Kanal
 
