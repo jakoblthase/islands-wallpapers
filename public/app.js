@@ -225,7 +225,7 @@ function kaufen() {
 /** Kaufknopf: öffnet Gumroad als Fenster über unserer Seite (gumroad.js); ohne Produkt „Coming soon“. */
 function kaufKnopf(text, gross = false) {
   return kauf.gumroad
-    ? h('a', { class: `knopf kaufen${gross ? ' gross' : ''}`, href: `${kauf.gumroad}?wanted=true`, 'data-gumroad-overlay-checkout': 'true' }, text)
+    ? h('a', { class: `knopf kaufen${gross ? ' gross' : ''}`, href: `${kauf.gumroad}?wanted=true`, 'data-gumroad-overlay-checkout': 'true', 'data-gumroad-single-product': 'true' }, text)
     : h('button', { class: 'knopf', type: 'button', disabled: true }, 'Coming soon');
 }
 
