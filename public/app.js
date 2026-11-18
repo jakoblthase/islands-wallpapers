@@ -114,25 +114,42 @@ function detail(f) {
   const paket = manifest.szenen;
   const frei = !!token;
   const preis = kauf.preis ?? '';
-  return h('main', { class: 'detail' },
+  const vorschau = (s) => h('img', { src: `${BASIS}${f.id}/vorschau-${s.id}.jpg`, alt: s.titel, loading: 'lazy', width: 430, height: Math.round((430 * manifest.hoehe) / manifest.breite) });
+  return h('main', { class: `detail${frei ? '' : ' mit-leiste'}` },
     h('button', { class: 'zurueck', type: 'button', onclick: () => geheZu(null) }, '‹ All islanders'),
     h('h1', {}, f.name),
     h('p', { class: 'leise' }, `On the island since episode ${String(f.seit).replace(/\D+/g, '')}`),
     manifest.bewegt?.knoepfe?.length ? buehne(f) : null,
-    h('figure', { class: 'gross' }, h('img', { src: `${BASIS}${f.id}/gratis.jpg`, alt: `${f.name} · ${gratis.titel}`, width: manifest.breite, height: manifest.hoehe })),
-    h('a', { class: 'knopf', href: `${BASIS}${f.id}/gratis.jpg`, download: `${manifest.kanal}-${f.id}.jpg` }, 'Download free wallpaper'),
-    h('section', { class: 'paket' },
-      h('h2', {}, frei ? 'Your wallpaper pack' : `Wallpaper pack${preis ? ' · ' + preis : ''}`),
-      h('p', { class: 'leise' }, frei ? 'All scenes in full size, without the channel name.' : `${paket.length} scenes in full size, without the channel name. One purchase unlocks the pack for every islander.`),
-      h('div', { class: 'szenen' }, paket.map((s) => h('div', { class: 'szene' },
-        h('img', { src: `${BASIS}${f.id}/vorschau-${s.id}.jpg`, alt: s.titel, loading: 'lazy', width: 430, height: Math.round((430 * manifest.hoehe) / manifest.breite) }),
-        h('span', {}, s.titel),
-        frei ? h('a', { class: 'knopf klein', href: `/api/datei?kanal=${manifest.kanal}&figur=${f.id}&szene=${s.id}&token=${encodeURIComponent(token)}`, download: `${manifest.kanal}-${f.id}-${s.id}.jpg` }, 'Download') : null,
-      ))),
-      frei ? null : kaufen(),
+    frei
+      ? h('section', { class: 'paket' },
+          h('h2', {}, 'Your wallpaper pack'),
+          h('p', { class: 'leise' }, 'All scenes in full size, without the channel name.'),
+          h('div', { class: 'szenen' }, paket.map((s) => h('div', { class: 'szene' }, vorschau(s), h('span', {}, s.titel),
+            h('a', { class: 'knopf klein', href: `/api/datei?kanal=${manifest.kanal}&figur=${f.id}&szene=${s.id}&token=${encodeURIComponent(token)}`, download: `${manifest.kanal}-${f.id}-${s.id}.jpg` }, 'Download')))),
+        )
+      : h('section', { class: 'angebot', id: 'paket' },
+          h('p', { class: 'angebot-oben' }, `${f.name} in ${paket.length} scenes`),
+          h('h2', {}, `Get all ${paket.length} wallpapers`),
+          h('div', { class: 'streifen' }, paket.map((s) => h('figure', {}, vorschau(s), h('figcaption', {}, s.titel)))),
+          h('ul', { class: 'vorteile' },
+            h('li', {}, 'Full size for every phone'),
+            h('li', {}, 'Without the channel name'),
+            h('li', {}, 'One purchase unlocks every islander')),
+          kaufen(),
+        ),
+    h('section', { class: 'gratis' },
+      h('h2', {}, 'Free wallpaper'),
+      h('div', { class: 'gratis-reihe' },
+        h('img', { src: `${BASIS}${f.id}/gratis.jpg`, alt: `${f.name} · ${gratis.titel}`, width: manifest.breite, height: manifest.hoehe, loading: 'lazy' }),
+        h('div', {},
+          h('p', { class: 'leise' }, `${gratis.titel}, with your name and the channel name.`),
+          h('a', { class: 'knopf umriss', href: `${BASIS}${f.id}/gratis.jpg`, download: `${manifest.kanal}-${f.id}.jpg` }, 'Download free'))),
     ),
     h('p', { class: 'hinweis' }, 'Your name is on the island because you commented “I’m moving in!”. ',
       h('a', { href: '/datenschutz.html#entfernen' }, 'Remove my islander from this page')),
+    frei || !kauf.gumroad ? null : h('div', { class: 'kaufleiste' },
+      h('span', {}, h('strong', {}, `All ${paket.length} wallpapers`), h('br'), preis),
+      kaufKnopf('Get the pack')),
   );
 }
 
@@ -198,10 +215,17 @@ function kaufen() {
       freischalten.disabled = false;
     }
   } }, feld, freischalten);
-  const kaufLink = kauf.gumroad
-    ? h('a', { class: 'knopf gumroad-button', href: `${kauf.gumroad}?wanted=true`, 'data-gumroad-overlay-checkout': 'true' }, `Get the pack${kauf.preis ? ' · ' + kauf.preis : ''}`)
+  const schluessel = h('details', { class: 'schon-gekauft' },
+    h('summary', {}, 'Already bought? Enter your license key'),
+    h('p', { class: 'leise klein' }, 'You find the key in your receipt email.'), form, meldung);
+  return h('div', { class: 'kauf' }, kaufKnopf(`Get all wallpapers${kauf.preis ? ' · ' + kauf.preis : ''}`, true), schluessel);
+}
+
+/** Kaufknopf: öffnet Gumroad als Fenster über unserer Seite (gumroad.js); ohne Produkt „Coming soon“. */
+function kaufKnopf(text, gross = false) {
+  return kauf.gumroad
+    ? h('a', { class: `knopf kaufen${gross ? ' gross' : ''}`, href: `${kauf.gumroad}?wanted=true`, 'data-gumroad-overlay-checkout': 'true' }, text)
     : h('button', { class: 'knopf', type: 'button', disabled: true }, 'Coming soon');
-  return h('div', { class: 'kauf' }, kaufLink, h('p', { class: 'leise klein' }, 'Already bought? Enter the license key from your receipt:'), form, meldung);
 }
 
 if (kauf.gumroad) document.head.append(h('script', { src: 'https://gumroad.com/js/gumroad.js', async: true }));
