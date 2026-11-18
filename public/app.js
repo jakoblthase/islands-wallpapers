@@ -62,6 +62,9 @@ const beobachter = bewegung ? new IntersectionObserver((eintraege) => {
       const v = h('video', { muted: true, loop: true, playsinline: true, autoplay: true, preload: 'auto', 'aria-hidden': 'true', disablepictureinpicture: true });
       v.muted = true;
       v.addEventListener('playing', () => v.classList.add('an'), { once: true });
+      // jede Figur an einer anderen Stelle und minimal anders schnell, damit nichts gleichzeitig wippt
+      v.addEventListener('loadedmetadata', () => { v.currentTime = Math.random() * (v.duration || 2); }, { once: true });
+      v.playbackRate = 0.9 + Math.random() * 0.2;
       // MP4 (H.264) für alle üblichen Browser, WebM als Ersatz (z. B. Chromium ohne H.264)
       v.append(h('source', { src: `${BASIS}${kachel.dataset.id}/portraet.mp4`, type: 'video/mp4' }), h('source', { src: `${BASIS}${kachel.dataset.id}/portraet.webm`, type: 'video/webm' }));
       rahmen.append(v);
@@ -115,6 +118,7 @@ function detail(f) {
     h('button', { class: 'zurueck', type: 'button', onclick: () => geheZu(null) }, '‹ All islanders'),
     h('h1', {}, f.name),
     h('p', { class: 'leise' }, `${manifest.titel} · on the island since episode ${String(f.seit).replace(/\D+/g, '')}`),
+    manifest.bewegt?.knoepfe?.length ? buehne(f) : null,
     h('figure', { class: 'gross' }, h('img', { src: `${BASIS}${f.id}/gratis.jpg`, alt: `${f.name} · ${gratis.titel}`, width: manifest.breite, height: manifest.hoehe })),
     h('a', { class: 'knopf', href: `${BASIS}${f.id}/gratis.jpg`, download: `${manifest.kanal}-${f.id}.jpg` }, 'Download free wallpaper'),
     h('section', { class: 'paket' },
@@ -130,6 +134,44 @@ function detail(f) {
     h('p', { class: 'hinweis' }, 'Your name is on the island because you commented “I’m moving in!”. ',
       h('a', { href: '/datenschutz.html#entfernen' }, 'Remove my islander from this page')),
   );
+}
+
+/** Videoquellen einer Schleife (MP4 für alle üblichen Browser, WebM als Ersatz). */
+const quellen = (id, datei) => [
+  h('source', { src: `${BASIS}${id}/${datei}.mp4`, type: 'video/mp4' }),
+  h('source', { src: `${BASIS}${id}/${datei}.webm`, type: 'video/webm' }),
+];
+
+/**
+ * Die Figur im Studio mit zwei Knöpfen. Ein Tipp lädt erst dann das passende Video (vorher wird nichts geladen)
+ * und spielt die Bewegung zweimal; danach wieder die eigene Bewegung (bzw. das Standbild bei „weniger Bewegung“).
+ */
+function buehne(f) {
+  const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const video = h('video', { muted: true, playsinline: true, preload: 'none', 'aria-hidden': 'true', disablepictureinpicture: true });
+  video.muted = true;
+  const rahmen = h('div', { class: 'buehne' }, h('img', { src: `${BASIS}${f.id}/portraet.jpg`, alt: f.name, width: 600, height: 750 }), video);
+  let runden = 0, aktiv = null;
+  const spiele = (datei, schleife) => {
+    video.pause();
+    video.replaceChildren(...quellen(f.id, datei));
+    video.loop = schleife;
+    video.load();
+    video.play().then(() => video.classList.add('an')).catch(() => video.classList.remove('an'));
+  };
+  const ruhe = () => {
+    aktiv = null;
+    knoepfe.forEach((k) => k.setAttribute('aria-pressed', 'false'));
+    if (ruhig) { video.pause(); video.classList.remove('an'); } else spiele('portraet', true);
+  };
+  video.addEventListener('ended', () => { if (aktiv && ++runden < 2) video.play(); else ruhe(); });
+  const knoepfe = manifest.bewegt.knoepfe.map((k) => h('button', { class: 'knopf zweit', type: 'button', 'aria-pressed': 'false', onclick: (e) => {
+    aktiv = k.id; runden = 0;
+    knoepfe.forEach((x) => x.setAttribute('aria-pressed', String(x === e.currentTarget)));
+    spiele(`aktion-${k.id}`, false);
+  } }, k.titel));
+  if (!ruhig) requestAnimationFrame(() => spiele('portraet', true));
+  return h('div', { class: 'buehnenbereich' }, rahmen, h('div', { class: 'aktionen' }, knoepfe));
 }
 
 function kaufen() {
