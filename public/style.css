@@ -1,0 +1,118 @@
+@font-face { font-family: 'Lilita One'; src: url('/schrift/lilita-one-latin-400-normal.woff2') format('woff2'); font-display: swap; }
+
+:root {
+  --hg: #e8f7fb; --karte: #ffffff; --text: #1d2433; --leise: #5b6778; --akzent: #ff7f50; --akzent-text: #ffffff;
+  --rund: 18px; --abstand: 16px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--hg); color: var(--text); font: 16px/1.45 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+main { max-width: 960px; margin: 0 auto; padding: 24px var(--abstand) 48px; }
+h1, h2, .knopf, .name, .kanal { font-family: 'Lilita One', system-ui, sans-serif; font-weight: 400; letter-spacing: 0.01em; }
+h1 { font-size: clamp(32px, 8vw, 48px); line-height: 1.05; margin: 4px 0 16px; }
+h2 { font-size: 24px; margin: 0 0 4px; }
+.leise { color: var(--leise); margin: 0 0 16px; }
+.klein { font-size: 14px; }
+a { color: inherit; }
+
+.kopf { text-align: center; }
+.kanal { color: var(--akzent); margin: 8px 0 0; font-size: 18px; }
+.suche input {
+  width: 100%; max-width: 520px; min-height: 52px; padding: 0 18px; font: inherit; font-size: 17px;
+  border: 2px solid transparent; border-radius: 999px; background: var(--karte); color: var(--text);
+  box-shadow: 0 2px 10px rgba(29, 36, 51, 0.08); outline: none; transition: border-color 0.2s;
+}
+.suche input:focus { border-color: var(--akzent); }
+
+.gitter { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; margin-top: 24px; }
+.kachel {
+  display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 0 0 12px; border: 0; cursor: pointer;
+  background: var(--karte); border-radius: var(--rund); overflow: hidden; color: inherit; font: inherit;
+  box-shadow: 0 2px 10px rgba(29, 36, 51, 0.07); transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.kachel:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(29, 36, 51, 0.12); }
+.kachel:active { transform: scale(0.98); }
+.kachel .bild { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; background: #f3f5f7; }
+.kachel img, .kachel video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.kachel video { opacity: 0; transition: opacity 0.25s ease; pointer-events: none; }
+.kachel video.an { opacity: 1; }
+.name { font-size: 17px; padding: 2px 10px; max-width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.name::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--farbe); margin-right: 6px; vertical-align: 1px; }
+.leer, .hinweis { text-align: center; color: var(--leise); margin-top: 24px; }
+.hinweis { font-size: 14px; }
+
+.detail { max-width: 560px; }
+.zurueck { background: none; border: 0; padding: 10px 0; min-height: 44px; font: inherit; color: var(--leise); cursor: pointer; }
+.knopf {
+  display: flex; align-items: center; justify-content: center; width: 100%; min-height: 52px; padding: 0 20px;
+  border: 0; border-radius: 999px; background: var(--akzent); color: var(--akzent-text); font-size: 19px;
+  text-decoration: none; cursor: pointer; transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.knopf:active { transform: scale(0.98); }
+.knopf[disabled] { opacity: 0.5; cursor: default; }
+.knopf[aria-busy='true'] { opacity: 0.7; }
+.knopf.zweit { background: var(--text); width: auto; }
+.knopf.klein { min-height: 44px; font-size: 16px; margin-top: 6px; }
+
+.buehnenbereich { margin: 0 auto 20px; width: min(100%, 42vh); }
+.buehne { position: relative; width: 100%; aspect-ratio: 4 / 5; border-radius: var(--rund); overflow: hidden; background: #f3f5f7; box-shadow: 0 2px 10px rgba(29, 36, 51, 0.07); }
+.buehne img, .buehne video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.buehne video { opacity: 0; transition: opacity 0.2s ease; }
+.buehne video.an { opacity: 1; }
+.aktionen { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.aktionen .knopf { width: 100%; }
+.knopf.zweit[aria-pressed='true'] { background: var(--akzent); }
+.paket { margin-top: 32px; padding: 20px; background: var(--karte); border-radius: var(--rund); box-shadow: 0 2px 10px rgba(29, 36, 51, 0.07); }
+.szenen { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; margin-bottom: 18px; }
+.szene { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--leise); text-align: center; }
+.szene img { width: 100%; height: auto; border-radius: 10px; display: block; }
+.kauf .leise { margin: 14px 0 8px; }
+.schluessel { display: flex; gap: 8px; }
+.schluessel input { flex: 1; min-width: 0; min-height: 48px; padding: 0 14px; font: inherit; border: 2px solid #d7e3ea; border-radius: 12px; }
+.schluessel input:focus { outline: none; border-color: var(--akzent); }
+.meldung { color: #b4442a; margin: 8px 0 0; min-height: 1.4em; }
+
+.fuss { text-align: center; font-size: 13px; color: var(--leise); padding: 0 var(--abstand) 32px; }
+.fuss a { margin: 0 8px; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* Angebot auf der Seite einer Figur: groß, direkt unter der Figur */
+.angebot {
+  margin: 8px 0 28px; padding: 22px 18px 18px; border-radius: var(--rund); text-align: center;
+  background: linear-gradient(160deg, #fff4ec 0%, #ffffff 55%); border: 2px solid var(--akzent);
+  box-shadow: 0 8px 28px rgba(255, 127, 80, 0.22);
+}
+.angebot-oben { margin: 0; color: var(--akzent); font-family: 'Lilita One', system-ui, sans-serif; font-size: 17px; }
+.angebot h2 { font-size: clamp(28px, 7.5vw, 36px); margin: 2px 0 14px; }
+.streifen { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 2px 8px; margin: 0 -6px 10px; }
+.streifen figure { flex: 0 0 31%; margin: 0; scroll-snap-align: start; }
+.streifen img { width: 100%; height: auto; display: block; border-radius: 10px; box-shadow: 0 2px 8px rgba(29, 36, 51, 0.15); }
+.streifen figcaption { font-size: 12px; color: var(--leise); margin-top: 4px; }
+.vorteile { list-style: none; padding: 0; margin: 4px 0 16px; display: grid; gap: 4px; font-size: 15px; }
+.vorteile li::before { content: '✓'; color: var(--akzent); font-weight: 700; margin-right: 8px; }
+.knopf.kaufen { box-shadow: 0 6px 16px rgba(255, 127, 80, 0.35); }
+.knopf.gross { min-height: 60px; font-size: 22px; }
+.schon-gekauft { margin-top: 14px; text-align: left; }
+.schon-gekauft summary { cursor: pointer; color: var(--leise); font-size: 14px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+.schon-gekauft .leise { margin: 4px 0 8px; }
+
+/* Gratis-Wallpaper: kleiner, darunter */
+.gratis { margin: 0 0 20px; }
+.gratis h2 { font-size: 20px; }
+.gratis-reihe { display: grid; grid-template-columns: 34% 1fr; gap: 14px; align-items: center; }
+.gratis-reihe img { width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 2px 10px rgba(29, 36, 51, 0.12); }
+.knopf.umriss { background: transparent; color: var(--text); border: 2px solid var(--text); min-height: 48px; font-size: 17px; }
+
+/* Leiste unten: der Kauf ist immer einen Daumen entfernt */
+.mit-leiste { padding-bottom: 110px; }
+.kaufleiste {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; display: flex; align-items: center; gap: 12px;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 -4px 18px rgba(29, 36, 51, 0.12); backdrop-filter: blur(8px);
+}
+.kaufleiste span { flex: 0 0 auto; font-size: 14px; line-height: 1.25; color: var(--leise); }
+.kaufleiste strong { color: var(--text); font-size: 15px; }
+.kaufleiste .knopf { flex: 1; min-height: 50px; }
+@media (min-width: 700px) { .kaufleiste { left: 50%; right: auto; width: 560px; transform: translateX(-50%); border-radius: 18px 18px 0 0; } }

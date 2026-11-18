@@ -1,0 +1,23 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": "public",
+  "redirects": [
+    { "source": "/", "destination": "/animated-islands", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/animated-islands", "destination": "/animated-islands/index.html" }
+  ],
+  "functions": {
+    "api/datei.js": { "includeFiles": "privat/**" },
+    "api/freischalten.js": { "includeFiles": "public/kanaele.json" }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
