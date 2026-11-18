@@ -117,7 +117,7 @@ function detail(f) {
   return h('main', { class: 'detail' },
     h('button', { class: 'zurueck', type: 'button', onclick: () => geheZu(null) }, '‹ All islanders'),
     h('h1', {}, f.name),
-    h('p', { class: 'leise' }, `${manifest.titel} · on the island since episode ${String(f.seit).replace(/\D+/g, '')}`),
+    h('p', { class: 'leise' }, `On the island since episode ${String(f.seit).replace(/\D+/g, '')}`),
     manifest.bewegt?.knoepfe?.length ? buehne(f) : null,
     h('figure', { class: 'gross' }, h('img', { src: `${BASIS}${f.id}/gratis.jpg`, alt: `${f.name} · ${gratis.titel}`, width: manifest.breite, height: manifest.hoehe })),
     h('a', { class: 'knopf', href: `${BASIS}${f.id}/gratis.jpg`, download: `${manifest.kanal}-${f.id}.jpg` }, 'Download free wallpaper'),

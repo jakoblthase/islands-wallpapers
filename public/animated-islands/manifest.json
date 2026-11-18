@@ -160,6 +160,24 @@
       "farbe": "#3a3f55"
     }
   ],
-  "bewegt": true,
+  "bewegt": {
+    "knoepfe": [
+      {
+        "id": "tanzen",
+        "titel": "Dance"
+      },
+      {
+        "id": "huepfen",
+        "titel": "Jump"
+      }
+    ],
+    "schleifen": {
+      "winken": 2.285,
+      "jubeln": 2.513,
+      "tanzen": 2.5,
+      "zeigen": 2.693,
+      "huepfen": 2.5
+    }
+  },
   "stand": "2026-11-18"
 }
