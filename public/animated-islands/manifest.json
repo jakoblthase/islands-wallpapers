@@ -1,0 +1,164 @@
+{
+  "kanal": "animated-islands",
+  "titel": "Animated Islands",
+  "handle": "@animated.islands",
+  "seite": {
+    "ueberschrift": "Find your islander",
+    "suche": "Search your TikTok name",
+    "nichtGefunden": "Not on the island yet? Comment “I’m moving in!” under the newest episode.",
+    "farben": {
+      "hintergrund": "#e8f7fb",
+      "karte": "#ffffff",
+      "text": "#1d2433",
+      "leise": "#5b6778",
+      "akzent": "#ff7f50",
+      "akzentText": "#ffffff"
+    },
+    "schrift": "Lilita One"
+  },
+  "breite": 1290,
+  "hoehe": 2796,
+  "szenen": [
+    {
+      "id": "tag",
+      "titel": "Sunny beach",
+      "gratis": true
+    },
+    {
+      "id": "abend",
+      "titel": "Sunset",
+      "gratis": false
+    },
+    {
+      "id": "nacht",
+      "titel": "Island night",
+      "gratis": false
+    },
+    {
+      "id": "glas",
+      "titel": "Island in the glass",
+      "gratis": false
+    },
+    {
+      "id": "studio",
+      "titel": "Photo studio",
+      "gratis": false,
+      "portraet": true
+    }
+  ],
+  "figuren": [
+    {
+      "id": "hase",
+      "name": "hasehasepfeffernase",
+      "art": "hase",
+      "seit": "Folge 3",
+      "farbe": "#3fb6c8"
+    },
+    {
+      "id": "snooze",
+      "name": "Snooze",
+      "art": "igel",
+      "seit": "Folge 4",
+      "farbe": "#ffd23f"
+    },
+    {
+      "id": "kukirin",
+      "name": "kukirin life players",
+      "art": "fuchs",
+      "seit": "Folge 4",
+      "farbe": "#2fbf71"
+    },
+    {
+      "id": "rezsoq",
+      "name": "rezsoq2ndaccount",
+      "art": "frosch",
+      "seit": "Folge 4",
+      "farbe": "#ff5a5f"
+    },
+    {
+      "id": "erica",
+      "name": "erica",
+      "art": "pinguin",
+      "seit": "Folge 4",
+      "farbe": "#5ce1e6"
+    },
+    {
+      "id": "punkte",
+      "name": "…",
+      "art": "maus",
+      "seit": "Folge 4",
+      "farbe": "#ff9f43"
+    },
+    {
+      "id": "kim",
+      "name": "Kim",
+      "art": "koala",
+      "seit": "Folge 4",
+      "farbe": "#ff6fa8"
+    },
+    {
+      "id": "monica",
+      "name": "Monica",
+      "art": "panda",
+      "seit": "Folge 4",
+      "farbe": "#ff8c42"
+    },
+    {
+      "id": "freddy",
+      "name": "freddy",
+      "art": "eule",
+      "seit": "Folge 4",
+      "farbe": "#22c4f0"
+    },
+    {
+      "id": "flowery",
+      "name": "Flowery",
+      "art": "maus",
+      "seit": "Folge 4",
+      "farbe": "#ffffff"
+    },
+    {
+      "id": "nimi",
+      "name": "Nimi",
+      "art": "katze",
+      "seit": "Folge 4",
+      "farbe": "#b48cff"
+    },
+    {
+      "id": "emily",
+      "name": "emily",
+      "art": "ente",
+      "seit": "Folge 4",
+      "farbe": "#7ad6ff"
+    },
+    {
+      "id": "saywhen",
+      "name": "saywhen_",
+      "art": "katze",
+      "seit": "Folge 4",
+      "farbe": "#6cc551"
+    },
+    {
+      "id": "sprintrap",
+      "name": "Sprintrap >:]",
+      "art": "waschbaer",
+      "seit": "Folge 4",
+      "farbe": "#9b5de5"
+    },
+    {
+      "id": "mond",
+      "name": "the moon is shining",
+      "art": "baer",
+      "seit": "Folge 4",
+      "farbe": "#16244a"
+    },
+    {
+      "id": "azk",
+      "name": "AZK",
+      "art": "hund",
+      "seit": "Folge 4",
+      "farbe": "#3a3f55"
+    }
+  ],
+  "stand": "2026-11-18"
+}

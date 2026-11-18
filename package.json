@@ -1,0 +1,7 @@
+{
+  "name": "islands-wallpapers",
+  "private": true,
+  "type": "module",
+  "description": "Wallpaper-Seiten für die TikTok-Kanäle (Bilder aus dem Repository tiktok)",
+  "engines": { "node": ">=20" }
+}
