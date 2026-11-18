@@ -158,6 +158,181 @@
       "art": "hund",
       "seit": "Folge 4",
       "farbe": "#3a3f55"
+    },
+    {
+      "id": "quajuzzleh",
+      "name": "Quajuzzleh",
+      "art": "fuchs",
+      "seit": "Folge 5",
+      "farbe": "#2ec4b6"
+    },
+    {
+      "id": "jamie",
+      "name": "JamieSeidel-r8b",
+      "art": "baer",
+      "seit": "Folge 5",
+      "farbe": "#ff9f43"
+    },
+    {
+      "id": "jeyjey",
+      "name": "JeyjeyX_2753",
+      "art": "waschbaer",
+      "seit": "Folge 5",
+      "farbe": "#7ad6ff"
+    },
+    {
+      "id": "barca",
+      "name": "Barcalover-c3g",
+      "art": "hund",
+      "seit": "Folge 5",
+      "farbe": "#3f7be0"
+    },
+    {
+      "id": "zylix",
+      "name": "zylix_edit",
+      "art": "katze",
+      "seit": "Folge 5",
+      "farbe": "#ffd23f"
+    },
+    {
+      "id": "creeper",
+      "name": "TotallyNotA_Creeper",
+      "art": "frosch",
+      "seit": "Folge 5",
+      "farbe": "#9b5de5"
+    },
+    {
+      "id": "lisa",
+      "name": "lisaplace2",
+      "art": "katze",
+      "seit": "Folge 5",
+      "farbe": "#ff8fb1"
+    },
+    {
+      "id": "lakivel",
+      "name": "lakivel5232",
+      "art": "koala",
+      "seit": "Folge 5",
+      "farbe": "#2fbf71"
+    },
+    {
+      "id": "caz",
+      "name": "CazCessna",
+      "art": "pinguin",
+      "seit": "Folge 5",
+      "farbe": "#ffb23e"
+    },
+    {
+      "id": "porodica",
+      "name": "PorodicaKajgana",
+      "art": "maus",
+      "seit": "Folge 5",
+      "farbe": "#ff6fa8"
+    },
+    {
+      "id": "player",
+      "name": "player47111",
+      "art": "panda",
+      "seit": "Folge 5",
+      "farbe": "#22c4f0"
+    },
+    {
+      "id": "pudding",
+      "name": "PuddingRantzz",
+      "art": "katze",
+      "seit": "Folge 6",
+      "farbe": "#7ed957"
+    },
+    {
+      "id": "amelia",
+      "name": "Amelia",
+      "art": "hund",
+      "seit": "Folge 6",
+      "farbe": "#ff8fb1"
+    },
+    {
+      "id": "dominic",
+      "name": "dominicberger3334",
+      "art": "baer",
+      "seit": "Folge 6",
+      "farbe": "#ff7f50"
+    },
+    {
+      "id": "pickly",
+      "name": "pickly",
+      "art": "frosch",
+      "seit": "Folge 7",
+      "farbe": "#ff9f43"
+    },
+    {
+      "id": "hotspring",
+      "name": "hot spring enjoyer",
+      "art": "ente",
+      "seit": "Folge 7",
+      "farbe": "#e4572e"
+    },
+    {
+      "id": "und",
+      "name": "and",
+      "art": "baer",
+      "seit": "Folge 7",
+      "farbe": "#ffd23f"
+    },
+    {
+      "id": "mr8subs",
+      "name": "Mr8subs",
+      "art": "hund",
+      "seit": "Folge 7",
+      "farbe": "#22c4f0"
+    },
+    {
+      "id": "doublea",
+      "name": "Double_A",
+      "art": "fuchs",
+      "seit": "Folge 7",
+      "farbe": "#3fd9a8"
+    },
+    {
+      "id": "max",
+      "name": "Max. 1234",
+      "art": "pinguin",
+      "seit": "Folge 8",
+      "farbe": "#c084fc"
+    },
+    {
+      "id": "lucid",
+      "name": "lucid",
+      "art": "katze",
+      "seit": "Folge 8",
+      "farbe": "#e9f5ff"
+    },
+    {
+      "id": "bunger",
+      "name": "Bunger",
+      "art": "baer",
+      "seit": "Folge 8",
+      "farbe": "#d62839"
+    },
+    {
+      "id": "sandesser",
+      "name": "defentlynotAn_Abstraction",
+      "art": "maus",
+      "seit": "Folge 8",
+      "farbe": "#f6e3b4"
+    },
+    {
+      "id": "figus",
+      "name": "figus",
+      "art": "eule",
+      "seit": "Folge 10",
+      "farbe": "#ffd23f"
+    },
+    {
+      "id": "error404",
+      "name": "error404 wannabe",
+      "art": "maus",
+      "seit": "Folge 10",
+      "farbe": "#3f7be0"
     }
   ],
   "bewegt": {
