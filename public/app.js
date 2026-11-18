@@ -37,6 +37,7 @@ let token = speicher.lies(tokenSchluessel);
 function zeige() {
   const id = new URLSearchParams(location.search).get('f');
   const figur = manifest.figuren.find((f) => f.id === id);
+  beobachter?.disconnect();
   app.replaceChildren(figur ? detail(figur) : uebersicht());
   window.scrollTo(0, 0);
 }
@@ -46,16 +47,49 @@ function geheZu(id) {
 }
 addEventListener('popstate', zeige);
 
+/**
+ * Bewegte Kacheln, ohne dass viele Figuren die Seite langsam machen: Zuerst steht überall das Standbild.
+ * Ein kleines Video (portraet.mp4, etwa 35 KB) entsteht erst, wenn eine Kachel zur Hälfte im Bild ist, und wird
+ * beim Herausscrollen wieder entfernt. So laufen immer nur die Videos, die man gerade sieht.
+ * Bei „weniger Bewegung“ oder wenn der Browser nicht abspielen will (Stromsparmodus) bleibt das Standbild.
+ */
+const bewegung = manifest.bewegt && !matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window;
+const beobachter = bewegung ? new IntersectionObserver((eintraege) => {
+  for (const { target: kachel, isIntersecting } of eintraege) {
+    const rahmen = kachel.querySelector('.bild');
+    const video = rahmen.querySelector('video');
+    if (isIntersecting && !video) {
+      const v = h('video', { muted: true, loop: true, playsinline: true, autoplay: true, preload: 'auto', 'aria-hidden': 'true', disablepictureinpicture: true });
+      v.muted = true;
+      v.addEventListener('playing', () => v.classList.add('an'), { once: true });
+      // MP4 (H.264) für alle üblichen Browser, WebM als Ersatz (z. B. Chromium ohne H.264)
+      v.append(h('source', { src: `${BASIS}${kachel.dataset.id}/portraet.mp4`, type: 'video/mp4' }), h('source', { src: `${BASIS}${kachel.dataset.id}/portraet.webm`, type: 'video/webm' }));
+      rahmen.append(v);
+      v.play().catch(() => v.remove());
+    } else if (!isIntersecting && video) {
+      video.pause();
+      video.replaceChildren();
+      video.load();
+      video.remove();
+    }
+  }
+}, { threshold: 0.5 }) : null;
+
 function uebersicht() {
   const gitter = h('div', { class: 'gitter' });
   const leer = h('p', { class: 'leer', hidden: true }, 'No islander with that name yet.');
   const fuelle = (q) => {
     const n = normal(q);
     const treffer = manifest.figuren.filter((f) => !n || normal(f.name).includes(n));
-    gitter.replaceChildren(...treffer.map((f) => h('button', { class: 'kachel', type: 'button', onclick: () => geheZu(f.id) },
-      h('img', { src: `${BASIS}${f.id}/portraet.jpg`, alt: f.name, loading: 'lazy', width: 600, height: 750 }),
-      h('span', { class: 'name', style: `--farbe:${f.farbe}` }, f.name),
-    )));
+    beobachter?.disconnect();
+    gitter.replaceChildren(...treffer.map((f) => {
+      const kachel = h('button', { class: 'kachel', type: 'button', onclick: () => geheZu(f.id), 'data-id': f.id },
+        h('span', { class: 'bild' }, h('img', { src: `${BASIS}${f.id}/portraet.jpg`, alt: f.name, loading: 'lazy', width: 600, height: 750 })),
+        h('span', { class: 'name', style: `--farbe:${f.farbe}` }, f.name),
+      );
+      beobachter?.observe(kachel);
+      return kachel;
+    }));
     leer.hidden = treffer.length > 0;
   };
   const suche = h('input', { type: 'search', placeholder: T.suche, 'aria-label': T.suche, autocomplete: 'off', oninput: (e) => fuelle(e.target.value) });

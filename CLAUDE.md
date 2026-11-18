@@ -7,7 +7,7 @@ Jakob ist Gründer, kein Entwickler. Entscheidungen und Ergebnisse auf Deutsch, 
 ## Wie es zusammenhängt
 
 - **Bilder kommen nur aus dem Repository `jakoblthase/tiktok`**: `node werkzeug/wallpaper.mjs <kanal> --ziel ../islands-wallpapers` rendert jede Figur aus dem Figurenblatt des Kanals in jeder Szene und kopiert sie hierher. Nichts wird hier gezeichnet oder generiert. Neue Figur in einer Folge = Werkzeug neu laufen lassen, committen, fertig. Regeln dort: `docs/wallpaper.md`.
-- `public/<kanal>/`: öffentlich. `manifest.json` (Figuren, Szenen, Texte, Farben), je Figur `portraet.jpg` (Fotostudio, Kachel), `gratis.jpg` (Gratis-Wallpaper mit Namen und kleinem Kanalnamen), `vorschau-<szene>.jpg`.
+- `public/<kanal>/`: öffentlich. `manifest.json` (Figuren, Szenen, Texte, Farben), je Figur `portraet.jpg` (Fotostudio, Kachel), `portraet.mp4`/`.webm` (kurze Winke-Schleife; läuft nur, solange die Kachel sichtbar ist, und nie bei „weniger Bewegung“), `gratis.jpg` (Gratis-Wallpaper mit Namen und kleinem Kanalnamen), `vorschau-<szene>.jpg`.
 - `privat/<kanal>/`: das bezahlte Paket in voller Größe, **nie öffentlich**; nur über `api/datei.js` mit gültigem Freischalt-Token.
 - `public/app.js`, `public/style.css`: eine Seite für alle Kanäle; `public/<kanal>/index.html` setzt nur `window.KANAL`.
 - `public/kanaele.json`: Preis und Gumroad je Kanal (`gumroad` = Produkt-Link, `gumroadProduktId` = Produkt-ID). Leer = Kaufknopf zeigt „Coming soon“.
