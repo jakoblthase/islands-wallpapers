@@ -10,7 +10,7 @@ Jakob ist Gründer, kein Entwickler. Entscheidungen und Ergebnisse auf Deutsch, 
 - `public/<kanal>/`: öffentlich. `manifest.json` (Figuren, Szenen, Texte, Farben), je Figur `portraet.jpg` (Fotostudio, Kachel), `portraet.mp4`/`.webm` (kurze Winke-Schleife; läuft nur, solange die Kachel sichtbar ist, und nie bei „weniger Bewegung“), `gratis.jpg` (Gratis-Wallpaper mit Namen und kleinem Kanalnamen), `vorschau-<szene>.jpg`.
 - `privat/<kanal>/`: das bezahlte Paket in voller Größe, **nie öffentlich**; nur über `api/datei.js` mit gültigem Freischalt-Token.
 - `public/app.js`, `public/style.css`: eine Seite für alle Kanäle; `public/<kanal>/index.html` setzt nur `window.KANAL`.
-- `public/kanaele.json`: Preis und Gumroad je Kanal (`gumroad` = Produkt-Link, `gumroadProduktId` = Produkt-ID). Leer = Kaufknopf zeigt „Coming soon“.
+- `public/kanaele.json`: Preis und Gumroad je Kanal (Animated Islands: 3,99 €, Produkt `digitaljlhproducts.gumroad.com/l/wallpapers`) (`gumroad` = Produkt-Link, `gumroadProduktId` = Produkt-ID). Leer = Kaufknopf zeigt „Coming soon“.
 - `api/freischalten.js`: prüft den Lizenzschlüssel aus der Gumroad-Quittung bei Gumroad und gibt ein signiertes Token (365 Tage) zurück. `api/datei.js`: liefert eine Datei aus `privat/` nur mit Token. `api/_token.js`: Signatur mit `WALLPAPER_SECRET` (nur in Vercel, nie im Repository).
 
 ## Neuer Kanal
@@ -25,7 +25,7 @@ Jakob ist Gründer, kein Entwickler. Entscheidungen und Ergebnisse auf Deutsch, 
 - **Einziehen bleibt kostenlos.** Wer zahlt, bekommt in den Folgen keinen Vorteil; das Paket ist ein Andenken.
 - **Nur TikTok-Namen, nie Klarnamen.** Wer nicht auf der Seite stehen will, wird auf Zuruf entfernt (Eintrag aus dem Katalog im tiktok-Repository nehmen bzw. Figur dort ausblenden, neu rendern).
 - Keine Cookies, kein Tracking, keine Konten. Das Freischalt-Token steht nur im Browser.
-- **Impressum und Datenschutz** haben Platzhalter (`[NAME]`, `[ANSCHRIFT]`, `[E-MAIL]`). Vor dem Live-Gang von Jakob ausfüllen lassen; vorher nicht in die Bio.
+- **Impressum und Datenschutz** mit Jakobs Angaben (2026-11-18). Ändern sich Anschrift oder E-Mail, beide Seiten anpassen.
 - Schrift Lilita One (SIL Open Font License) liegt in `public/schrift/`.
 - Je Schritt ein Branch und ein Pull Request; Jakob gibt frei. Nichts veröffentlichen ohne Jakobs Freigabe.
 - Links auf Dateien immer als GitHub-Link mit Branch.
