@@ -4,7 +4,7 @@
   "handle": "@animated.islands",
   "seite": {
     "ueberschrift": "Find your islander",
-    "suche": "Search your TikTok name",
+    "suche": "Search your username",
     "nichtGefunden": "Not on the island yet? Comment “I’m moving in!” under the newest episode.",
     "farben": {
       "hintergrund": "#e8f7fb",
@@ -333,6 +333,20 @@
       "art": "maus",
       "seit": "Folge 10",
       "farbe": "#3f7be0"
+    },
+    {
+      "id": "daisy",
+      "name": "•~Daisy~•",
+      "art": "frosch",
+      "seit": "Folge 11",
+      "farbe": "#c3f584"
+    },
+    {
+      "id": "goofy",
+      "name": "TheGoofyGuy",
+      "art": "hund",
+      "seit": "Folge 11",
+      "farbe": "#ff6fd8"
     }
   ],
   "bewegt": {
@@ -354,5 +368,5 @@
       "huepfen": 2.5
     }
   },
-  "stand": "2026-11-18"
+  "stand": "2026-11-19"
 }
