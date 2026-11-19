@@ -52,301 +52,734 @@
       "name": "hasehasepfeffernase",
       "art": "hase",
       "seit": "Folge 3",
-      "farbe": "#3fb6c8"
+      "farbe": "#3fb6c8",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "snooze",
       "name": "Snooze",
       "art": "igel",
       "seit": "Folge 4",
-      "farbe": "#ffd23f"
+      "farbe": "#ffd23f",
+      "items": [],
+      "anprobe": [
+        "shades",
+        "herzbrille",
+        "zauberstab"
+      ]
     },
     {
       "id": "kukirin",
       "name": "kukirin life players",
       "art": "fuchs",
       "seit": "Folge 4",
-      "farbe": "#2fbf71"
+      "farbe": "#2fbf71",
+      "items": [],
+      "anprobe": [
+        "shades",
+        "herzbrille",
+        "zauberstab"
+      ]
     },
     {
       "id": "rezsoq",
       "name": "rezsoq2ndaccount",
       "art": "frosch",
       "seit": "Folge 4",
-      "farbe": "#ff5a5f"
+      "farbe": "#ff5a5f",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "erica",
       "name": "erica",
       "art": "pinguin",
       "seit": "Folge 4",
-      "farbe": "#5ce1e6"
+      "farbe": "#5ce1e6",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "punkte",
       "name": "…",
       "art": "maus",
       "seit": "Folge 4",
-      "farbe": "#ff9f43"
+      "farbe": "#ff9f43",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "kim",
       "name": "Kim",
       "art": "koala",
       "seit": "Folge 4",
-      "farbe": "#ff6fa8"
+      "farbe": "#ff6fa8",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "monica",
       "name": "Monica",
       "art": "panda",
       "seit": "Folge 4",
-      "farbe": "#ff8c42"
+      "farbe": "#ff8c42",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "freddy",
       "name": "freddy",
       "art": "eule",
       "seit": "Folge 4",
-      "farbe": "#22c4f0"
+      "farbe": "#22c4f0",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "flowery",
       "name": "Flowery",
       "art": "maus",
       "seit": "Folge 4",
-      "farbe": "#ffffff"
+      "farbe": "#ffffff",
+      "items": [],
+      "anprobe": [
+        "shades",
+        "herzbrille",
+        "zauberstab"
+      ]
     },
     {
       "id": "nimi",
       "name": "Nimi",
       "art": "katze",
       "seit": "Folge 4",
-      "farbe": "#b48cff"
+      "farbe": "#b48cff",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "emily",
       "name": "emily",
       "art": "ente",
       "seit": "Folge 4",
-      "farbe": "#7ad6ff"
+      "farbe": "#7ad6ff",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "saywhen",
       "name": "saywhen_",
       "art": "katze",
       "seit": "Folge 4",
-      "farbe": "#6cc551"
+      "farbe": "#6cc551",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "sprintrap",
       "name": "Sprintrap >:]",
       "art": "waschbaer",
       "seit": "Folge 4",
-      "farbe": "#9b5de5"
+      "farbe": "#9b5de5",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "mond",
       "name": "the moon is shining",
       "art": "baer",
       "seit": "Folge 4",
-      "farbe": "#16244a"
+      "farbe": "#16244a",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "azk",
       "name": "AZK",
       "art": "hund",
       "seit": "Folge 4",
-      "farbe": "#3a3f55"
+      "farbe": "#3a3f55",
+      "items": [],
+      "anprobe": [
+        "shades",
+        "herzbrille",
+        "zauberstab"
+      ]
     },
     {
       "id": "quajuzzleh",
       "name": "Quajuzzleh",
       "art": "fuchs",
       "seit": "Folge 5",
-      "farbe": "#2ec4b6"
+      "farbe": "#2ec4b6",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "jamie",
       "name": "JamieSeidel-r8b",
       "art": "baer",
       "seit": "Folge 5",
-      "farbe": "#ff9f43"
+      "farbe": "#ff9f43",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "jeyjey",
       "name": "JeyjeyX_2753",
       "art": "waschbaer",
       "seit": "Folge 5",
-      "farbe": "#7ad6ff"
+      "farbe": "#7ad6ff",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "barca",
       "name": "Barcalover-c3g",
       "art": "hund",
       "seit": "Folge 5",
-      "farbe": "#3f7be0"
+      "farbe": "#3f7be0",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "zylix",
       "name": "zylix_edit",
       "art": "katze",
       "seit": "Folge 5",
-      "farbe": "#ffd23f"
+      "farbe": "#ffd23f",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "creeper",
       "name": "TotallyNotA_Creeper",
       "art": "frosch",
       "seit": "Folge 5",
-      "farbe": "#9b5de5"
+      "farbe": "#9b5de5",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "lisa",
       "name": "lisaplace2",
       "art": "katze",
       "seit": "Folge 5",
-      "farbe": "#ff8fb1"
+      "farbe": "#ff8fb1",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "lakivel",
       "name": "lakivel5232",
       "art": "koala",
       "seit": "Folge 5",
-      "farbe": "#2fbf71"
+      "farbe": "#2fbf71",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "caz",
       "name": "CazCessna",
       "art": "pinguin",
       "seit": "Folge 5",
-      "farbe": "#ffb23e"
+      "farbe": "#ffb23e",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "porodica",
       "name": "PorodicaKajgana",
       "art": "maus",
       "seit": "Folge 5",
-      "farbe": "#ff6fa8"
+      "farbe": "#ff6fa8",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "player",
       "name": "player47111",
       "art": "panda",
       "seit": "Folge 5",
-      "farbe": "#22c4f0"
+      "farbe": "#22c4f0",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "pudding",
       "name": "PuddingRantzz",
       "art": "katze",
       "seit": "Folge 6",
-      "farbe": "#7ed957"
+      "farbe": "#7ed957",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "amelia",
       "name": "Amelia",
       "art": "hund",
       "seit": "Folge 6",
-      "farbe": "#ff8fb1"
+      "farbe": "#ff8fb1",
+      "items": [],
+      "anprobe": [
+        "shades",
+        "herzbrille",
+        "zauberstab"
+      ]
     },
     {
       "id": "dominic",
       "name": "dominicberger3334",
       "art": "baer",
       "seit": "Folge 6",
-      "farbe": "#ff7f50"
+      "farbe": "#ff7f50",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "pickly",
       "name": "pickly",
       "art": "frosch",
       "seit": "Folge 7",
-      "farbe": "#ff9f43"
+      "farbe": "#ff9f43",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "hotspring",
       "name": "hot spring enjoyer",
       "art": "ente",
       "seit": "Folge 7",
-      "farbe": "#e4572e"
+      "farbe": "#e4572e",
+      "items": [],
+      "anprobe": [
+        "shades",
+        "herzbrille",
+        "zauberstab"
+      ]
     },
     {
       "id": "und",
       "name": "and",
       "art": "baer",
       "seit": "Folge 7",
-      "farbe": "#ffd23f"
+      "farbe": "#ffd23f",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "mr8subs",
       "name": "Mr8subs",
       "art": "hund",
       "seit": "Folge 7",
-      "farbe": "#22c4f0"
+      "farbe": "#22c4f0",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "doublea",
       "name": "Double_A",
       "art": "fuchs",
       "seit": "Folge 7",
-      "farbe": "#3fd9a8"
+      "farbe": "#3fd9a8",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "max",
       "name": "Max. 1234",
       "art": "pinguin",
       "seit": "Folge 8",
-      "farbe": "#c084fc"
+      "farbe": "#c084fc",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "lucid",
       "name": "lucid",
       "art": "katze",
       "seit": "Folge 8",
-      "farbe": "#e9f5ff"
+      "farbe": "#e9f5ff",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "bunger",
       "name": "Bunger",
       "art": "baer",
       "seit": "Folge 8",
-      "farbe": "#d62839"
+      "farbe": "#d62839",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "sandesser",
       "name": "defentlynotAn_Abstraction",
       "art": "maus",
       "seit": "Folge 8",
-      "farbe": "#f6e3b4"
+      "farbe": "#f6e3b4",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "figus",
       "name": "figus",
       "art": "eule",
       "seit": "Folge 10",
-      "farbe": "#ffd23f"
+      "farbe": "#ffd23f",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "error404",
       "name": "error404 wannabe",
       "art": "maus",
       "seit": "Folge 10",
-      "farbe": "#3f7be0"
+      "farbe": "#3f7be0",
+      "items": [],
+      "anprobe": [
+        "shades",
+        "herzbrille",
+        "zauberstab"
+      ]
     },
     {
       "id": "daisy",
       "name": "•~Daisy~•",
       "art": "frosch",
       "seit": "Folge 11",
-      "farbe": "#c3f584"
+      "farbe": "#c3f584",
+      "items": [],
+      "anprobe": [
+        "cap/red",
+        "cap/blue",
+        "cap/green",
+        "cap/yellow",
+        "shades",
+        "herzbrille",
+        "krone",
+        "zauberstab"
+      ]
     },
     {
       "id": "goofy",
       "name": "TheGoofyGuy",
       "art": "hund",
       "seit": "Folge 11",
-      "farbe": "#ff6fd8"
+      "farbe": "#ff6fd8",
+      "items": [],
+      "anprobe": [
+        "shades",
+        "herzbrille",
+        "zauberstab"
+      ]
     }
   ],
   "bewegt": {
@@ -366,6 +799,50 @@
       "tanzen": 2.5,
       "zeigen": 2.693,
       "huepfen": 2.5
+    }
+  },
+  "items": {
+    "katalog": {
+      "cap": {
+        "name": "Cap",
+        "stufe": "gratis",
+        "andock": "kopf",
+        "preis": "Free",
+        "varianten": [
+          "red",
+          "blue",
+          "green",
+          "yellow"
+        ]
+      },
+      "shades": {
+        "name": "Shades",
+        "stufe": "gratis",
+        "andock": "augen",
+        "preis": "Free",
+        "varianten": null
+      },
+      "herzbrille": {
+        "name": "Heart shades",
+        "stufe": "deluxe",
+        "andock": "augen",
+        "preis": "1.99 €",
+        "varianten": null
+      },
+      "krone": {
+        "name": "Crown",
+        "stufe": "deluxe",
+        "andock": "kopf",
+        "preis": "2.99 €",
+        "varianten": null
+      },
+      "zauberstab": {
+        "name": "Magic wand",
+        "stufe": "deluxe",
+        "andock": "hand",
+        "preis": "2.99 €",
+        "varianten": null
+      }
     }
   },
   "stand": "2026-11-19"

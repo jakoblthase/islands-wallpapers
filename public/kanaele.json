@@ -2,6 +2,13 @@
   "animated-islands": {
     "preis": "3.99 €",
     "gumroad": "https://digitaljlhproducts.gumroad.com/l/wallpapers",
-    "gumroadProduktId": "cLqr2AFb4uuX7zPairFmSg=="
+    "gumroadProduktId": "cLqr2AFb4uuX7zPairFmSg==",
+    "items": {
+      "cap": "",
+      "shades": "",
+      "herzbrille": "",
+      "krone": "",
+      "zauberstab": ""
+    }
   }
 }

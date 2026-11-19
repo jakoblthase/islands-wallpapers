@@ -1,6 +1,8 @@
 // Wallpaper-Seite für einen TikTok-Kanal. Jede Kanal-Seite (public/<kanal>/index.html) setzt window.KANAL und lädt dieses Skript.
 // Daten: ./manifest.json (aus dem Repository tiktok, werkzeug/wallpaper.mjs) und /kanaele.json (Bezahlung je Kanal).
 // Ablauf: Figur suchen → antippen → Gratis-Wallpaper laden; Paket über Gumroad kaufen, mit dem Lizenzschlüssel freischalten.
+// Items (Konzept im Repository tiktok, docs/konzept-items.md): auf der Seite der Figur anprobieren (Bild auf der Bühne),
+// gratis oder Deluxe über Gumroad holen; Gumroad fragt nach dem TikTok-Namen. Eingetragen wird von Hand im Repository tiktok.
 
 const $ = (sel, el = document) => el.querySelector(sel);
 const h = (tag, attrs = {}, ...kinder) => {
@@ -119,7 +121,10 @@ function detail(f) {
     h('button', { class: 'zurueck', type: 'button', onclick: () => geheZu(null) }, '‹ All islanders'),
     h('h1', {}, f.name),
     h('p', { class: 'leise' }, `On the island since episode ${String(f.seit).replace(/\D+/g, '')}`),
-    manifest.bewegt?.knoepfe?.length ? buehne(f) : null,
+    ...(() => {
+      const b = manifest.bewegt?.knoepfe?.length ? buehne(f) : null;
+      return [b, manifest.items && f.anprobe?.length ? anziehen(f, b) : null];
+    })(),
     frei
       ? h('section', { class: 'paket' },
           h('h2', {}, 'Your wallpaper pack'),
@@ -168,8 +173,11 @@ function buehne(f) {
   const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const video = h('video', { muted: true, playsinline: true, preload: 'none', 'aria-hidden': 'true', disablepictureinpicture: true });
   video.muted = true;
-  const rahmen = h('div', { class: 'buehne' }, h('img', { src: `${BASIS}${f.id}/portraet.jpg`, alt: f.name, width: 600, height: 750 }), video);
+  const bild = h('img', { src: `${BASIS}${f.id}/portraet.jpg`, alt: f.name, width: 600, height: 750 });
+  const rahmen = h('div', { class: 'buehne' }, bild, video);
   let runden = 0, aktiv = null;
+  // Anprobe: welches Bild und welche Schleife gerade gilt (ohne Item: Porträt)
+  let standbild = 'portraet', ruheschleife = 'portraet';
   const spiele = (datei, schleife) => {
     video.pause();
     video.replaceChildren(...quellen(f.id, datei));
@@ -180,7 +188,7 @@ function buehne(f) {
   const ruhe = () => {
     aktiv = null;
     knoepfe.forEach((k) => k.setAttribute('aria-pressed', 'false'));
-    if (ruhig) { video.pause(); video.classList.remove('an'); } else spiele('portraet', true);
+    if (ruhig || !ruheschleife) { video.pause(); video.classList.remove('an'); } else spiele(ruheschleife, true);
   };
   video.addEventListener('ended', () => { if (aktiv && ++runden < 2) video.play(); else ruhe(); });
   const knoepfe = manifest.bewegt.knoepfe.map((k) => h('button', { class: 'knopf zweit', type: 'button', 'aria-pressed': 'false', onclick: (e) => {
@@ -189,7 +197,91 @@ function buehne(f) {
     spiele(`aktion-${k.id}`, false);
   } }, k.titel));
   if (!ruhig) requestAnimationFrame(() => spiele('portraet', true));
-  return h('div', { class: 'buehnenbereich' }, rahmen, h('div', { class: 'aktionen' }, knoepfe));
+  const bereich = h('div', { class: 'buehnenbereich' }, rahmen, h('div', { class: 'aktionen' }, knoepfe));
+  /** Zeigt die Figur mit einem Item (datei ohne Endung, z. B. „item-krone“) oder wieder ohne (null). Deluxe bewegt sich. */
+  bereich.anprobe = (datei, bewegt) => {
+    standbild = datei ?? 'portraet';
+    ruheschleife = datei ? (bewegt ? datei : null) : 'portraet';
+    bild.src = `${BASIS}${f.id}/${standbild}.jpg`;
+    video.classList.remove('an');
+    ruhe();
+  };
+  return bereich;
+}
+
+/** Datei der Anprobe zu einem Eintrag („cap/blue“ → „item-cap-blue“). */
+const itemDatei = (eintrag) => `item-${eintrag.replace('/', '-')}`;
+const FARBNAMEN = { red: '#e4572e', blue: '#3f7be0', green: '#2fbf71', yellow: '#ffc93c' };
+
+/**
+ * Items für die Figur: oben gratis, darunter Deluxe. Antippen zieht das Item auf der Bühne an,
+ * darunter der Knopf zu Gumroad (je Item ein Produkt in kanaele.json → items). Ohne Produkt: „Coming soon“.
+ */
+function anziehen(f, bereich) {
+  const K = manifest.items.katalog;
+  const links = kauf.items ?? {};
+  const traegt = new Set((f.items ?? []).map((e) => e.split('/')[0]));
+  const ids = [...new Set(f.anprobe.map((e) => e.split('/')[0]))];
+  let gewaehlt = null, farbe = null;
+  // Knopf und Hinweis stehen direkt unter der Gruppe des gewählten Items (gratis oder Deluxe)
+  const orte = { gratis: h('div', { class: 'item-kauf' }), deluxe: h('div', { class: 'item-kauf' }) };
+  const karten = new Map();
+
+  const waehle = (id, variante = null) => {
+    gewaehlt = id === gewaehlt && !variante ? null : id;
+    farbe = gewaehlt && K[id].varianten ? (variante ?? farbe ?? K[id].varianten[0]) : null;
+    const eintrag = gewaehlt ? (farbe ? `${id}/${farbe}` : id) : null;
+    for (const [k, karte] of karten) karte.setAttribute('aria-pressed', String(k === gewaehlt));
+    if (farbe) karten.get(id).querySelector('img').src = `${BASIS}${f.id}/${itemDatei(eintrag)}.jpg`; // Karte zeigt die gewählte Farbe
+    bereich?.anprobe(eintrag ? itemDatei(eintrag) : null, gewaehlt && K[id].stufe === 'deluxe');
+    bereich?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+    for (const [stufe, ort] of Object.entries(orte)) ort.replaceChildren(...(gewaehlt && K[gewaehlt].stufe === stufe ? holen(f, gewaehlt, farbe, links[gewaehlt]) : []));
+  };
+
+  const karte = (id) => {
+    const it = K[id];
+    const k = h('button', { class: `item ${it.stufe}`, type: 'button', 'aria-pressed': 'false', onclick: () => waehle(id) },
+      h('span', { class: 'item-bild' }, h('img', { src: `${BASIS}${f.id}/${itemDatei(it.varianten ? `${id}/${it.varianten[0]}` : id)}.jpg`, alt: '', loading: 'lazy', width: 600, height: 750 })),
+      h('span', { class: 'item-name' }, it.name),
+      h('span', { class: 'item-preis' }, traegt.has(id) ? 'Wearing it' : it.stufe === 'gratis' ? 'Free' : it.preis));
+    karten.set(id, k);
+    return k;
+  };
+  const gruppe = (stufe, titel, text) => {
+    const liste = ids.filter((id) => K[id].stufe === stufe);
+    return liste.length ? h('div', { class: 'item-gruppe' }, h('h3', {}, titel), h('p', { class: 'leise klein' }, text), h('div', { class: 'items' }, liste.map(karte)), orte[stufe]) : null;
+  };
+
+  /** Knopf und Hinweis zum gewählten Item; die Kappe bekommt Farbtupfer. */
+  function holen(fig, id, variante, link) {
+    const it = K[id];
+    const teile = [];
+    if (it.varianten) {
+      teile.push(h('div', { class: 'farben', role: 'group', 'aria-label': 'Color' }, it.varianten.map((v) => h('button', {
+        class: 'farbe', type: 'button', 'data-farbe': v, 'aria-label': v, 'aria-pressed': String(v === variante),
+        style: `--f:${FARBNAMEN[v] ?? '#999'}`, onclick: () => waehle(id, v),
+      }))));
+    }
+    const text = it.stufe === 'gratis' ? `Get the ${it.name.toLowerCase()} free` : `Get the ${it.name.toLowerCase()} · ${it.preis}`;
+    teile.push(link
+      ? h('a', { class: `knopf${it.stufe === 'deluxe' ? ' kaufen' : ''}`, href: `${link}?wanted=true`, 'data-gumroad-overlay-checkout': 'true', 'data-gumroad-single-product': 'true' }, text)
+      : h('button', { class: 'knopf', type: 'button', disabled: true }, 'Coming soon'));
+    const name = h('strong', {}, fig.name);
+    teile.push(h('p', { class: 'leise klein item-hinweis' },
+      'At checkout, type your TikTok name: ', name,
+      it.varianten ? ` and the color: ${variante}.` : '.',
+      ' ', it.stufe === 'gratis'
+        ? 'One free item per islander.'
+        : 'It shows up in one of the next 3 episodes, or you get your money back.'));
+    return teile;
+  }
+
+  return h('section', { class: 'anziehen' },
+    h('h2', {}, `Dress up ${f.name}`),
+    h('p', { class: 'leise' }, 'Tap an item to try it on. Your islander wears it here and in one of the next episodes.'),
+    gruppe('gratis', 'Free', 'Simple and free. One per islander.'),
+    gruppe('deluxe', 'Deluxe', 'Shiny, sparkly and animated.'),
+  );
 }
 
 function kaufen() {
@@ -229,5 +321,5 @@ function kaufKnopf(text, gross = false) {
     : h('button', { class: 'knopf', type: 'button', disabled: true }, 'Coming soon');
 }
 
-if (kauf.gumroad) document.head.append(h('script', { src: 'https://gumroad.com/js/gumroad.js', async: true }));
+if (kauf.gumroad || Object.values(kauf.items ?? {}).some(Boolean)) document.head.append(h('script', { src: 'https://gumroad.com/js/gumroad.js', async: true }));
 zeige();
