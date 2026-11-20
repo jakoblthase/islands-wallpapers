@@ -347,6 +347,34 @@
       "art": "hund",
       "seit": "Folge 11",
       "farbe": "#ff6fd8"
+    },
+    {
+      "id": "bob",
+      "name": "Bob the man",
+      "art": "katze",
+      "seit": "Folge 12",
+      "farbe": "#2fbf71"
+    },
+    {
+      "id": "wax",
+      "name": "wax",
+      "art": "hase",
+      "seit": "Folge 12",
+      "farbe": "#ffd23f"
+    },
+    {
+      "id": "krasimir",
+      "name": "Krasimir",
+      "art": "hund",
+      "seit": "Folge 12",
+      "farbe": "#ff8c1a"
+    },
+    {
+      "id": "benett",
+      "name": "Benett",
+      "art": "katze",
+      "seit": "Folge 12",
+      "farbe": "#3f7be0"
     }
   ],
   "bewegt": {
@@ -368,5 +396,5 @@
       "huepfen": 2.5
     }
   },
-  "stand": "2026-11-19"
+  "stand": "2026-11-20"
 }
